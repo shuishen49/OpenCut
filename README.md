@@ -199,14 +199,6 @@
 
 [MIT LICENSE](LICENSE)
 
----
-
-## Star 历史
-
-![Star History Chart](https://api.star-history.com/svg?repos=opencut-app/opencut&type=Date)
-
----
-
 ## 联系方式
 
 如有问题或建议，欢迎：
