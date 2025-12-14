@@ -14,6 +14,9 @@
 
 [![加入QQ群](https://img.shields.io/badge/QQ群-点击加入-blue.svg)](https://qm.qq.com/cgi-bin/qm/qr?k=kSKwz-HRqrddrALgfLqCp7C2-aGZqPlv&jump_from=webapi&authKey=KUwPZ1lgzoIXjwIf/AfQ0UFFhRcUAO8VAdZk2kVdrGHQhxyhlgn30vX1SCX5Lu8d) (群号: 83958598)
 
+[![在线预览](https://img.shields.io/badge/在线预览-立即体验-green.svg)](https://v.sparkbazaar.cn/) 🌐
+
+**在线预览地址：** https://v.sparkbazaar.cn/
 
 ## 📢 关于本项目
 
