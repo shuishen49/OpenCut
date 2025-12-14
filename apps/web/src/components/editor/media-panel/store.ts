@@ -28,43 +28,43 @@ export type Tab =
 export const tabs: { [key in Tab]: { icon: LucideIcon; label: string } } = {
   media: {
     icon: VideoIcon,
-    label: "Media",
+    label: "媒体",
   },
   sounds: {
     icon: MusicIcon,
-    label: "Sounds",
+    label: "音效",
   },
   text: {
     icon: TypeIcon,
-    label: "Text",
+    label: "文本",
   },
   stickers: {
     icon: StickerIcon,
-    label: "Stickers",
+    label: "贴纸",
   },
   effects: {
     icon: SparklesIcon,
-    label: "Effects",
+    label: "特效",
   },
   transitions: {
     icon: ArrowLeftRightIcon,
-    label: "Transitions",
+    label: "转场",
   },
   captions: {
     icon: CaptionsIcon,
-    label: "Captions",
+    label: "字幕",
   },
   filters: {
     icon: BlendIcon,
-    label: "Filters",
+    label: "滤镜",
   },
   adjustment: {
     icon: SlidersHorizontalIcon,
-    label: "Adjustment",
+    label: "调整",
   },
   settings: {
     icon: SettingsIcon,
-    label: "Settings",
+    label: "设置",
   },
 };
 

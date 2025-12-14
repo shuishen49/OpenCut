@@ -223,7 +223,7 @@ function SoundEffectsView() {
     <div className="flex flex-col gap-5 mt-1 h-full">
       <div className="flex items-center gap-3">
         <Input
-          placeholder="Search sound effects"
+          placeholder="搜索音效"
           className="bg-panel-accent w-full"
           containerClassName="w-full"
           value={searchQuery}
@@ -403,9 +403,9 @@ function SavedSoundsView() {
           strokeWidth={1.5}
         />
         <div className="flex flex-col gap-2 text-center">
-          <p className="text-lg font-medium">No saved sounds</p>
+          <p className="text-lg font-medium">暂无收藏的音效</p>
           <p className="text-sm text-muted-foreground text-balance">
-            Click the heart icon on any sound to save it here
+            点击音效上的心形图标收藏到这里
           </p>
         </div>
       </div>
@@ -416,8 +416,7 @@ function SavedSoundsView() {
     <div className="flex flex-col gap-5 mt-1 h-full">
       <div className="flex items-center justify-between">
         <p className="text-sm text-muted-foreground">
-          {savedSounds.length} saved{" "}
-          {savedSounds.length === 1 ? "sound" : "sounds"}
+          {savedSounds.length} 个收藏的音效
         </p>
         <Dialog open={showClearDialog} onOpenChange={setShowClearDialog}>
           <DialogTrigger asChild>
@@ -426,20 +425,19 @@ function SavedSoundsView() {
               size="sm"
               className="h-auto text-muted-foreground hover:text-destructive !opacity-100"
             >
-              Clear all
+              清除全部
             </Button>
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Clear all saved sounds?</DialogTitle>
+              <DialogTitle>清除所有收藏的音效？</DialogTitle>
               <DialogDescription>
-                This will permanently remove all {savedSounds.length} saved
-                sounds from your collection. This action cannot be undone.
+                这将从您的收藏中永久删除全部 {savedSounds.length} 个音效。此操作无法撤销。
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
               <Button variant="text" onClick={() => setShowClearDialog(false)}>
-                Cancel
+                取消
               </Button>
               <Button
                 variant="destructive"
@@ -539,7 +537,7 @@ function AudioItem({
           size="icon"
           className="text-muted-foreground hover:text-foreground !opacity-100 w-auto"
           onClick={handleAddToTimeline}
-          title="Add to timeline"
+          title="添加到时间线"
         >
           <PlusIcon className="w-4 h-4" />
         </Button>

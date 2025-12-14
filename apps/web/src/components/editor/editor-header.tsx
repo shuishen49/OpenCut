@@ -64,7 +64,7 @@ export function EditorHeader() {
           <Link href="/projects">
             <DropdownMenuItem className="flex items-center gap-1.5">
               <ArrowLeft className="h-4 w-4" />
-              Projects
+              项目列表
             </DropdownMenuItem>
           </Link>
           <DropdownMenuItem
@@ -72,7 +72,7 @@ export function EditorHeader() {
             onClick={() => setIsRenameDialogOpen(true)}
           >
             <SquarePen className="h-4 w-4" />
-            Rename project
+            重命名项目
           </DropdownMenuItem>
           <DropdownMenuItem
             variant="destructive"
@@ -80,7 +80,7 @@ export function EditorHeader() {
             onClick={() => setIsDeleteDialogOpen(true)}
           >
             <Trash className="h-4 w-4" />
-            Delete Project
+            删除项目
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem asChild>

@@ -193,7 +193,7 @@ export function DraggableMediaItem({
                 {showPlusOnDrag && (
                   <PlusButton
                     onClick={handleAddToTimeline}
-                    tooltipText="Add to timeline or drag to position"
+                    tooltipText="添加到时间线或拖动到位置"
                   />
                 )}
               </AspectRatio>

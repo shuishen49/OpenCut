@@ -56,12 +56,12 @@ function MediaItemWithContextMenu({
     <ContextMenu>
       <ContextMenuTrigger>{children}</ContextMenuTrigger>
       <ContextMenuContent>
-        <ContextMenuItem>Export clips</ContextMenuItem>
+        <ContextMenuItem>导出片段</ContextMenuItem>
         <ContextMenuItem
           variant="destructive"
           onClick={(e) => onRemove(e, item.id)}
         >
-          Delete
+          删除
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>
@@ -88,7 +88,7 @@ export function MediaView() {
   const processFiles = async (files: FileList | File[]) => {
     if (!files || files.length === 0) return;
     if (!activeProject) {
-      toast.error("No active project");
+      toast.error("没有活动项目");
       return;
     }
 
@@ -103,7 +103,7 @@ export function MediaView() {
       }
     } catch (error) {
       console.error("Error processing files:", error);
-      toast.error("Failed to process files");
+      toast.error("处理文件失败");
     } finally {
       setIsProcessing(false);
       setProgress(0);
@@ -126,7 +126,7 @@ export function MediaView() {
     e.stopPropagation();
 
     if (!activeProject) {
-      toast.error("No active project");
+      toast.error("没有活动项目");
       return;
     }
 
@@ -220,7 +220,7 @@ export function MediaView() {
           preview = (
             <div className="w-full h-full bg-muted/30 flex flex-col items-center justify-center text-muted-foreground rounded">
               <Video className="h-6 w-6 mb-1" />
-              <span className="text-xs">Video</span>
+              <span className="text-xs">视频</span>
               {item.duration && (
                 <span className="text-xs opacity-70">
                   {formatDuration(item.duration)}
@@ -233,7 +233,7 @@ export function MediaView() {
         preview = (
           <div className="w-full h-full bg-linear-to-br from-green-500/20 to-emerald-500/20 flex flex-col items-center justify-center text-muted-foreground rounded border border-green-500/20">
             <Music className="h-6 w-6 mb-1" />
-            <span className="text-xs">Audio</span>
+            <span className="text-xs">音频</span>
             {item.duration && (
               <span className="text-xs opacity-70">
                 {formatDuration(item.duration)}
@@ -245,7 +245,7 @@ export function MediaView() {
         preview = (
           <div className="w-full h-full bg-muted/30 flex flex-col items-center justify-center text-muted-foreground rounded">
             <Image className="h-6 w-6" />
-            <span className="text-xs mt-1">Unknown</span>
+            <span className="text-xs mt-1">未知</span>
           </div>
         );
       }
@@ -289,7 +289,7 @@ export function MediaView() {
               ) : (
                 <CloudUpload className="h-4 w-4" />
               )}
-              <span>Upload</span>
+              <span>上传</span>
             </Button>
             <div className="flex items-center gap-0">
               <TooltipProvider>
@@ -319,8 +319,8 @@ export function MediaView() {
                   <TooltipContent>
                     <p>
                       {mediaViewMode === "grid"
-                        ? "Switch to list view"
-                        : "Switch to grid view"}
+                        ? "切换到列表视图"
+                        : "切换到网格视图"}
                     </p>
                   </TooltipContent>
                   <Tooltip>
@@ -353,7 +353,7 @@ export function MediaView() {
                             }
                           }}
                         >
-                          Name{" "}
+                          名称{" "}
                           {sortBy === "name" &&
                             (sortOrder === "asc" ? "↑" : "↓")}
                         </DropdownMenuItem>
@@ -369,7 +369,7 @@ export function MediaView() {
                             }
                           }}
                         >
-                          Type{" "}
+                          类型{" "}
                           {sortBy === "type" &&
                             (sortOrder === "asc" ? "↑" : "↓")}
                         </DropdownMenuItem>
@@ -385,7 +385,7 @@ export function MediaView() {
                             }
                           }}
                         >
-                          Duration{" "}
+                          时长{" "}
                           {sortBy === "duration" &&
                             (sortOrder === "asc" ? "↑" : "↓")}
                         </DropdownMenuItem>
@@ -401,7 +401,7 @@ export function MediaView() {
                             }
                           }}
                         >
-                          File Size{" "}
+                          文件大小{" "}
                           {sortBy === "size" &&
                             (sortOrder === "asc" ? "↑" : "↓")}
                         </DropdownMenuItem>
@@ -409,8 +409,8 @@ export function MediaView() {
                     </DropdownMenu>
                     <TooltipContent>
                       <p>
-                        Sort by {sortBy} (
-                        {sortOrder === "asc" ? "ascending" : "descending"})
+                        按{sortBy === "name" ? "名称" : sortBy === "type" ? "类型" : sortBy === "duration" ? "时长" : "大小"}排序 (
+                        {sortOrder === "asc" ? "升序" : "降序"})
                       </p>
                     </TooltipContent>
                   </Tooltip>

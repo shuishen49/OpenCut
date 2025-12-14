@@ -9,8 +9,8 @@ export interface TextPropertiesTabMeta {
 }
 
 export const TEXT_PROPERTIES_TABS: ReadonlyArray<TextPropertiesTabMeta> = [
-  { value: "transform", label: "Transform" },
-  { value: "style", label: "Style" },
+  { value: "transform", label: "变换" },
+  { value: "style", label: "样式" },
 ] as const;
 
 export function isTextPropertiesTab(value: string): value is TextPropertiesTab {

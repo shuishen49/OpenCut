@@ -126,8 +126,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects(); // Refresh the list
     } catch (error) {
       console.error("Failed to update project bookmarks:", error);
-      toast.error("Failed to update bookmarks", {
-        description: "Please try again",
+      toast.error("更新书签失败", {
+        description: "请重试",
       });
     }
   },
@@ -174,8 +174,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects(); // Refresh the list
     } catch (error) {
       console.error("Failed to update project bookmarks:", error);
-      toast.error("Failed to remove bookmark", {
-        description: "Please try again",
+      toast.error("删除书签失败", {
+        description: "请重试",
       });
     }
   },
@@ -203,7 +203,7 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects();
       return newProject.id;
     } catch (error) {
-      toast.error("Failed to save new project");
+      toast.error("保存新项目失败");
       throw error;
     }
   },
@@ -339,8 +339,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
     // Find the project to rename
     const projectToRename = savedProjects.find((p) => p.id === id);
     if (!projectToRename) {
-      toast.error("Project not found", {
-        description: "Please try again",
+      toast.error("项目未找到", {
+        description: "请重试",
       });
       return;
     }
@@ -363,9 +363,9 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       }
     } catch (error) {
       console.error("Failed to rename project:", error);
-      toast.error("Failed to rename project", {
+      toast.error("重命名项目失败", {
         description:
-          error instanceof Error ? error.message : "Please try again",
+          error instanceof Error ? error.message : "请重试",
       });
     }
   },
@@ -411,9 +411,9 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       return newProject.id;
     } catch (error) {
       console.error("Failed to duplicate project:", error);
-      toast.error("Failed to duplicate project", {
+      toast.error("复制项目失败", {
         description:
-          error instanceof Error ? error.message : "Please try again",
+          error instanceof Error ? error.message : "请重试",
       });
       throw error;
     }
@@ -435,8 +435,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects();
     } catch (error) {
       console.error("Failed to update project background:", error);
-      toast.error("Failed to update background", {
-        description: "Please try again",
+      toast.error("更新背景失败", {
+        description: "请重试",
       });
     }
   },
@@ -466,8 +466,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects();
     } catch (error) {
       console.error("Failed to update background type:", error);
-      toast.error("Failed to update background", {
-        description: "Please try again",
+      toast.error("更新背景失败", {
+        description: "请重试",
       });
     }
   },
@@ -488,8 +488,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects();
     } catch (error) {
       console.error("Failed to update project FPS:", error);
-      toast.error("Failed to update project FPS", {
-        description: "Please try again",
+      toast.error("更新项目帧率失败", {
+        description: "请重试",
       });
     }
   },
@@ -511,8 +511,8 @@ export const useProjectStore = create<ProjectStore>((set, get) => ({
       await get().loadAllProjects();
     } catch (error) {
       console.error("Failed to update canvas size:", error);
-      toast.error("Failed to update canvas size", {
-        description: "Please try again",
+      toast.error("更新画布大小失败", {
+        description: "请重试",
       });
     }
   },

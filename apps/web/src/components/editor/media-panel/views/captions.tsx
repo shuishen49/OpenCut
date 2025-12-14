@@ -52,11 +52,11 @@ export function Captions() {
     try {
       setIsProcessing(true);
       setError(null);
-      setProcessingStep("Extracting audio...");
+      setProcessingStep("正在提取音频...");
 
       const audioBlob = await extractTimelineAudio();
 
-      setProcessingStep("Encrypting audio...");
+      setProcessingStep("正在加密音频...");
 
       // Encrypt the audio with a random key (zero-knowledge)
       const audioBuffer = await audioBlob.arrayBuffer();
@@ -65,7 +65,7 @@ export function Captions() {
       // Convert encrypted data to blob for upload
       const encryptedBlob = new Blob([encryptionResult.encryptedData]);
 
-      setProcessingStep("Uploading...");
+      setProcessingStep("正在上传...");
       const uploadResponse = await fetch("/api/get-upload-url", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -85,7 +85,7 @@ export function Captions() {
         body: encryptedBlob,
       });
 
-      setProcessingStep("Transcribing...");
+      setProcessingStep("正在转录...");
 
       // Call Modal transcription API with encryption parameters
       const transcriptionResponse = await fetch("/api/transcribe", {
@@ -189,7 +189,7 @@ export function Captions() {
 
   return (
     <BaseView ref={containerRef} className="flex flex-col justify-between h-full">
-      <PropertyGroup title="Language">
+      <PropertyGroup title="语言">
         <LanguageSelect
           selectedCountry={selectedCountry}
           onSelect={setSelectedCountry}
@@ -217,7 +217,7 @@ export function Captions() {
           disabled={isProcessing}
         >
           {isProcessing && <Loader2 className="mr-1 h-4 w-4 animate-spin" />}
-          {isProcessing ? processingStep : "Generate transcript"}
+          {isProcessing ? processingStep : "生成字幕"}
         </Button>
 
         <Dialog open={showPrivacyDialog} onOpenChange={setShowPrivacyDialog}>
@@ -225,53 +225,45 @@ export function Captions() {
             <DialogHeader>
               <DialogTitle className="flex items-center gap-2">
                 <Shield className="h-5 w-5" />
-                Audio Processing Notice
+                音频处理通知
               </DialogTitle>
               <DialogDescription className="space-y-3">
                 <p>
-                  To generate captions, we need to process your timeline audio
-                  using speech-to-text technology.
+                  为了生成字幕，我们需要使用语音转文字技术处理您的时间线音频。
                 </p>
 
                 <div className="space-y-2 pt-2">
                   <div className="flex items-start gap-2">
                     <Shield className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">
-                      Zero-knowledge encryption - we cannot decrypt your files
-                      even if we wanted to
+                      零知识加密 - 即使我们想要解密您的文件，也无法做到
                     </span>
                   </div>
 
                   <div className="flex items-start gap-2">
                     <Shield className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">
-                      Encryption keys generated randomly in your browser, never
-                      stored anywhere
+                      加密密钥在您的浏览器中随机生成，从不存储在任何地方
                     </span>
                   </div>
 
                   <div className="flex items-start gap-2">
                     <Upload className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">
-                      Audio encrypted before upload - raw audio never leaves
-                      your device
+                      音频在上传前已加密 - 原始音频永远不会离开您的设备
                     </span>
                   </div>
 
                   <div className="flex items-start gap-2">
                     <Trash2 className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">
-                      Everything permanently deleted within seconds after
-                      transcription
+                      转录完成后几秒内永久删除所有内容
                     </span>
                   </div>
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  <strong>True zero-knowledge privacy:</strong> Encryption keys
-                  are generated randomly in your browser and never stored
-                  anywhere. It's cryptographically impossible for us, our cloud
-                  providers, or anyone else to decrypt your audio files.
+                  <strong>真正的零知识隐私：</strong> 加密密钥在您的浏览器中随机生成，从不存储在任何地方。从密码学角度来说，我们、我们的云服务提供商或任何其他人都无法解密您的音频文件。
                 </p>
               </DialogDescription>
             </DialogHeader>
@@ -281,7 +273,7 @@ export function Captions() {
                 onClick={() => setShowPrivacyDialog(false)}
                 disabled={isProcessing}
               >
-                Cancel
+                取消
               </Button>
               <Button
                 onClick={() => {
@@ -292,7 +284,7 @@ export function Captions() {
                 }}
                 disabled={isProcessing}
               >
-                Continue & Generate Captions
+                继续并生成字幕
               </Button>
             </DialogFooter>
           </DialogContent>

@@ -143,7 +143,7 @@ export default function ProjectsPage() {
           className="flex items-center gap-1 hover:text-muted-foreground transition-colors"
         >
           <ChevronLeft className="size-5! shrink-0" />
-          <span className="text-sm font-medium">Back</span>
+          <span className="text-sm font-medium">返回</span>
         </Link>
         <div className="block md:hidden">
           {isSelectionMode ? (
@@ -154,7 +154,7 @@ export default function ProjectsPage() {
                 onClick={handleCancelSelection}
               >
                 <X className="size-4!" />
-                Cancel
+                取消
               </Button>
               {selectedProjects.size > 0 && (
                 <Button
@@ -163,7 +163,7 @@ export default function ProjectsPage() {
                   onClick={() => setIsBulkDeleteDialogOpen(true)}
                 >
                   <Trash2 className="size-4!" />
-                  Delete ({selectedProjects.size})
+                  删除 ({selectedProjects.size})
                 </Button>
               )}
             </div>
@@ -176,14 +176,14 @@ export default function ProjectsPage() {
         <div className="mb-8 flex items-center justify-between">
           <div className="flex flex-col gap-3">
             <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Your Projects
+              您的项目
             </h1>
             <p className="text-muted-foreground">
               {savedProjects.length}{" "}
-              {savedProjects.length === 1 ? "project" : "projects"}
+              {savedProjects.length === 1 ? "个项目" : "个项目"}
               {isSelectionMode && selectedProjects.size > 0 && (
                 <span className="ml-2 text-primary">
-                  • {selectedProjects.size} selected
+                  • 已选中 {selectedProjects.size} 个
                 </span>
               )}
             </p>
@@ -193,7 +193,7 @@ export default function ProjectsPage() {
               <div className="flex items-center gap-2">
                 <Button variant="outline" onClick={handleCancelSelection}>
                   <X className="size-4!" />
-                  Cancel
+                  取消
                 </Button>
                 {selectedProjects.size > 0 && (
                   <Button
@@ -201,7 +201,7 @@ export default function ProjectsPage() {
                     onClick={() => setIsBulkDeleteDialogOpen(true)}
                   >
                     <Trash2 className="size-4!" />
-                    Delete Selected ({selectedProjects.size})
+                    删除选中 ({selectedProjects.size})
                   </Button>
                 )}
               </div>
@@ -212,7 +212,7 @@ export default function ProjectsPage() {
                   onClick={() => setIsSelectionMode(true)}
                   disabled={savedProjects.length === 0}
                 >
-                  Select Projects
+                  选择项目
                 </Button>
                 <CreateButton onClick={handleCreateProject} />
               </div>
@@ -223,7 +223,7 @@ export default function ProjectsPage() {
         <div className="mb-4 flex items-center justify-between gap-4">
           <div className="flex-1 max-w-72">
             <Input
-              placeholder="Search projects..."
+              placeholder="搜索项目..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
@@ -260,7 +260,7 @@ export default function ProjectsPage() {
                         }
                       }}
                     >
-                      Created{" "}
+                      创建时间{" "}
                       {sortOption.startsWith("createdAt") &&
                         (sortOption.endsWith("asc") ? "↑" : "↓")}
                     </DropdownMenuItem>
@@ -277,7 +277,7 @@ export default function ProjectsPage() {
                         }
                       }}
                     >
-                      Name{" "}
+                      名称{" "}
                       {sortOption.startsWith("name") &&
                         (sortOption.endsWith("asc") ? "↑" : "↓")}
                     </DropdownMenuItem>
@@ -285,9 +285,9 @@ export default function ProjectsPage() {
                 </DropdownMenu>
                 <TooltipContent>
                   <p>
-                    Sort by{" "}
-                    {sortOption.startsWith("createdAt") ? "date" : "name"} (
-                    {sortOption.endsWith("asc") ? "ascending" : "descending"})
+                    按{" "}
+                    {sortOption.startsWith("createdAt") ? "日期" : "名称"}排序（
+                    {sortOption.endsWith("asc") ? "升序" : "降序"}）
                   </p>
                 </TooltipContent>
               </Tooltip>
@@ -296,8 +296,8 @@ export default function ProjectsPage() {
         </div>
 
         {isSelectionMode && sortedProjects.length > 0 && (
-          <button
-            type="button"
+          <div
+            role="button"
             onClick={() => handleSelectAll(!allSelected)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
@@ -307,15 +307,16 @@ export default function ProjectsPage() {
             }}
             className="w-full hover:cursor-pointer gap-2 mb-6 p-4 bg-muted/30 rounded-lg border items-center flex"
             tabIndex={0}
+            aria-label={allSelected ? "取消全选" : "全选"}
           >
             <Checkbox checked={someSelected ? "indeterminate" : allSelected} />
             <span className="text-sm font-medium">
-              {allSelected ? "Deselect All" : "Select All"}
+              {allSelected ? "取消全选" : "全选"}
             </span>
             <span className="text-sm text-muted-foreground">
-              ({selectedProjects.size} of {sortedProjects.length} selected)
+              （已选中 {selectedProjects.size} / {sortedProjects.length}）
             </span>
-          </button>
+          </div>
         )}
 
         {isLoading || !isInitialized ? (
@@ -404,10 +405,10 @@ function ProjectCard({
   }, [project.id, getProjectThumbnail]);
 
   const formatDate = (date: Date): string => {
-    return date.toLocaleDateString("en-US", {
+    return date.toLocaleDateString("zh-CN", {
+      year: "numeric",
       month: "short",
       day: "numeric",
-      year: "numeric",
     });
   };
 
@@ -474,7 +475,7 @@ function ProjectCard({
           ) : dynamicThumbnail ? (
             <Image
               src={dynamicThumbnail}
-              alt="Project thumbnail"
+              alt="项目缩略图"
               fill
               className="object-cover"
             />
@@ -525,7 +526,7 @@ function ProjectCard({
                     setIsRenameDialogOpen(true);
                   }}
                 >
-                  Rename
+                  重命名
                 </DropdownMenuItem>
                 <DropdownMenuItem
                   onClick={(e) => {
@@ -534,7 +535,7 @@ function ProjectCard({
                     handleDuplicateProject();
                   }}
                 >
-                  Duplicate
+                  复制
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -546,7 +547,7 @@ function ProjectCard({
                     setIsDeleteDialogOpen(true);
                   }}
                 >
-                  Delete
+                  删除
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -556,7 +557,7 @@ function ProjectCard({
         <div className="space-y-1">
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <Calendar className="size-4!" />
-            <span>Created {formatDate(project.createdAt)}</span>
+            <span>创建于 {formatDate(project.createdAt)}</span>
           </div>
         </div>
       </CardContent>
@@ -598,7 +599,7 @@ function CreateButton({ onClick }: { onClick?: () => void }) {
   return (
     <Button className="flex" onClick={onClick}>
       <Plus className="size-4!" />
-      <span className="text-sm font-medium">New project</span>
+      <span className="text-sm font-medium">新建项目</span>
     </Button>
   );
 }
@@ -609,14 +610,13 @@ function NoProjects({ onCreateProject }: { onCreateProject: () => void }) {
       <div className="w-16 h-16 rounded-full bg-muted/30 flex items-center justify-center mb-4">
         <Video className="h-8 w-8 text-muted-foreground" />
       </div>
-      <h3 className="text-lg font-medium mb-2">No projects yet</h3>
+      <h3 className="text-lg font-medium mb-2">还没有项目</h3>
       <p className="text-muted-foreground mb-6 max-w-md">
-        Start creating your first video project. Import media, edit, and export
-        professional videos.
+        开始创建您的第一个视频项目。导入媒体、编辑并导出专业视频。
       </p>
       <Button size="lg" className="gap-2" onClick={onCreateProject}>
         <Plus className="h-4 w-4" />
-        Create Your First Project
+        创建您的第一个项目
       </Button>
     </div>
   );
@@ -634,13 +634,14 @@ function NoResults({
       <div className="w-16 h-16 rounded-full bg-muted/30 flex items-center justify-center mb-4">
         <Search className="h-8 w-8 text-muted-foreground" />
       </div>
-      <h3 className="text-lg font-medium mb-2">No results found</h3>
+      <h3 className="text-lg font-medium mb-2">未找到结果</h3>
       <p className="text-muted-foreground mb-6 max-w-md">
-        Your search for "{searchQuery}" did not return any results.
+        搜索 "{searchQuery}" 没有返回任何结果。
       </p>
       <Button onClick={onClearSearch} variant="outline">
-        Clear Search
+        清除搜索
       </Button>
     </div>
   );
 }
+

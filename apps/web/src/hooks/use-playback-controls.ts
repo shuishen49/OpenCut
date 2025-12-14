@@ -17,7 +17,7 @@ export const usePlaybackControls = () => {
 
   const handleSplitSelectedElement = useCallback(() => {
     if (selectedElements.length !== 1) {
-      toast.error("Select exactly one element to split");
+      toast.error("请选择恰好一个元素进行分割");
       return;
     }
 
@@ -33,7 +33,7 @@ export const usePlaybackControls = () => {
       (element.duration - element.trimStart - element.trimEnd);
 
     if (currentTime <= effectiveStart || currentTime >= effectiveEnd) {
-      toast.error("Playhead must be within selected element");
+      toast.error("播放头必须在选中的元素内");
       return;
     }
 
@@ -42,7 +42,7 @@ export const usePlaybackControls = () => {
 
   const handleSplitAndKeepLeftCallback = useCallback(() => {
     if (selectedElements.length !== 1) {
-      toast.error("Select exactly one element");
+      toast.error("请选择恰好一个元素");
       return;
     }
 
@@ -58,7 +58,7 @@ export const usePlaybackControls = () => {
       (element.duration - element.trimStart - element.trimEnd);
 
     if (currentTime <= effectiveStart || currentTime >= effectiveEnd) {
-      toast.error("Playhead must be within selected element");
+      toast.error("播放头必须在选中的元素内");
       return;
     }
 
@@ -67,7 +67,7 @@ export const usePlaybackControls = () => {
 
   const handleSplitAndKeepRightCallback = useCallback(() => {
     if (selectedElements.length !== 1) {
-      toast.error("Select exactly one element");
+      toast.error("请选择恰好一个元素");
       return;
     }
 
@@ -83,7 +83,7 @@ export const usePlaybackControls = () => {
       (element.duration - element.trimStart - element.trimEnd);
 
     if (currentTime <= effectiveStart || currentTime >= effectiveEnd) {
-      toast.error("Playhead must be within selected element");
+      toast.error("播放头必须在选中的元素内");
       return;
     }
 
@@ -92,7 +92,7 @@ export const usePlaybackControls = () => {
 
   const handleSeparateAudioCallback = useCallback(() => {
     if (selectedElements.length !== 1) {
-      toast.error("Select exactly one media element to separate audio");
+      toast.error("请选择恰好一个媒体元素以分离音频");
       return;
     }
 
@@ -100,7 +100,7 @@ export const usePlaybackControls = () => {
     const track = tracks.find((t) => t.id === trackId);
 
     if (!track || track.type !== "media") {
-      toast.error("Select a media element to separate audio");
+      toast.error("请选择一个媒体元素以分离音频");
       return;
     }
 

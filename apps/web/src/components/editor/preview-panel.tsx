@@ -737,7 +737,7 @@ export function PreviewPanel() {
                   width: previewDimensions.width,
                   height: previewDimensions.height,
                 }}
-                aria-label="Video preview canvas"
+                aria-label="视频预览画布"
               />
               {activeElements.length === 0 ? (
                 <></>
@@ -883,7 +883,7 @@ function FullscreenToolbar({
           onClick={skipBackward}
           disabled={!hasAnyElements}
           className="h-auto p-0 text-foreground"
-          title="Skip backward 1s"
+          title="向后跳转 1 秒"
         >
           <SkipBack className="h-3 w-3" />
         </Button>
@@ -906,7 +906,7 @@ function FullscreenToolbar({
           onClick={skipForward}
           disabled={!hasAnyElements}
           className="h-auto p-0 text-foreground hover:text-foreground/80"
-          title="Skip forward 1s"
+          title="向前跳转 1 秒"
         >
           <SkipForward className="h-3 w-3" />
         </Button>
@@ -941,7 +941,7 @@ function FullscreenToolbar({
         size="icon"
         className="size-4! text-foreground/80 hover:text-foreground"
         onClick={onToggleExpanded}
-        title="Exit fullscreen (Esc)"
+        title="退出全屏 (Esc)"
       >
         <Expand className="size-4!" />
       </Button>
@@ -1077,7 +1077,7 @@ function PreviewToolbar({
               variant="text"
               size="icon"
               className="h-auto p-0 mr-1"
-              title="Toggle layout guide"
+              title="切换布局指南"
             >
               <SocialsIcon className="!size-6" />
             </Button>
@@ -1085,11 +1085,9 @@ function PreviewToolbar({
           <PopoverContent className="w-80">
             <div className="grid gap-4">
               <div className="space-y-2">
-                <h4 className="font-medium leading-none">Layout guide</h4>
+                <h4 className="font-medium leading-none">布局指南</h4>
                 <p className="text-sm text-muted-foreground">
-                  Show platform-specific layout guides to help align your
-                  content with interface elements like profile pictures,
-                  usernames, and interaction buttons.
+                  显示平台特定的布局指南，帮助您将内容与界面元素对齐，例如头像、用户名和交互按钮。
                 </p>
               </div>
               <div className="grid gap-2">
@@ -1101,7 +1099,7 @@ function PreviewToolbar({
                       toggleLayoutGuide(layoutGuide.platform || "tiktok")
                     }
                   />
-                  <Label htmlFor="none">None</Label>
+                  <Label htmlFor="none">无</Label>
                 </div>
                 {Object.entries(PLATFORM_LAYOUTS).map(([platform, label]) => (
                   <div key={platform} className="flex items-center space-x-2">
@@ -1124,7 +1122,7 @@ function PreviewToolbar({
           size="icon"
           className="size-4!"
           onClick={onToggleExpanded}
-          title="Enter fullscreen"
+          title="进入全屏"
         >
           <Expand className="size-4!" />
         </Button>

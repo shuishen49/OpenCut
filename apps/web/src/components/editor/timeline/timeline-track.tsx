@@ -760,7 +760,7 @@ export function TimelineTrackContent({
         );
 
         if (!movingElement) {
-          toast.error("Element not found");
+          toast.error("元素未找到");
           return;
         }
 
@@ -800,7 +800,7 @@ export function TimelineTrackContent({
 
         if (hasOverlap) {
           toast.error(
-            "Cannot move element here - it would overlap with existing elements"
+            "无法移动元素到此处 - 会与现有元素重叠"
           );
           return;
         }
@@ -917,7 +917,7 @@ export function TimelineTrackContent({
           const mediaItem = mediaFiles.find((item) => item.id === dragData.id);
 
           if (!mediaItem) {
-            toast.error("Media item not found");
+            toast.error("媒体项未找到");
             return;
           }
 
@@ -1060,7 +1060,7 @@ export function TimelineTrackContent({
         const { addElementToTrack } = useTimelineStore.getState();
 
         if (!activeProject) {
-          toast.error("No active project");
+          toast.error("没有活动项目");
           return;
         }
 
@@ -1095,12 +1095,12 @@ export function TimelineTrackContent({
           })
           .catch((error) => {
             console.error("Error processing external files:", error);
-            toast.error("Failed to process dropped files");
+            toast.error("处理拖放文件失败");
           });
       }
     } catch (error) {
       console.error("Error handling drop:", error);
-      toast.error("Failed to add media to track");
+      toast.error("添加媒体到轨道失败");
     }
   };
 
@@ -1134,8 +1134,8 @@ export function TimelineTrackContent({
           >
             {isDropping
               ? wouldOverlap
-                ? "Cannot drop - would overlap"
-                : "Drop element here"
+                ? "无法放置 - 会重叠"
+                : "将元素放置此处"
               : ""}
           </div>
         ) : (
@@ -1157,7 +1157,7 @@ export function TimelineTrackContent({
                 if (splitTime > effectiveStart && splitTime < effectiveEnd) {
                   splitSelected(splitTime, track.id, element.id);
                 } else {
-                  toast.error("Playhead must be within element to split");
+                  toast.error("播放头必须在元素内才能分割");
                 }
               };
 

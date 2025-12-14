@@ -17,7 +17,7 @@ export const baseMetaData: Metadata = {
         url: SITE_INFO.openGraphImage,
         width: 1200,
         height: 630,
-        alt: "OpenCut Wordmark",
+        alt: "OpenCut 标识",
       },
     ],
   },

@@ -135,7 +135,7 @@ export function TextProperties({
           ) : (
             <div className="space-y-6">
               <Textarea
-                placeholder="Name"
+                placeholder="名称"
                 defaultValue={element.content}
                 className="min-h-18 resize-none bg-panel-accent"
                 onChange={(e) =>
@@ -145,7 +145,7 @@ export function TextProperties({
                 }
               />
               <PropertyItem direction="column">
-                <PropertyItemLabel>Font</PropertyItemLabel>
+                <PropertyItemLabel>字体</PropertyItemLabel>
                 <PropertyItemValue>
                   <FontPicker
                     defaultValue={element.fontFamily}
@@ -158,7 +158,7 @@ export function TextProperties({
                 </PropertyItemValue>
               </PropertyItem>
               <PropertyItem direction="column">
-                <PropertyItemLabel>Style</PropertyItemLabel>
+                <PropertyItemLabel>样式</PropertyItemLabel>
                 <PropertyItemValue>
                   <div className="flex items-center gap-2">
                     <Button
@@ -235,7 +235,7 @@ export function TextProperties({
                 </PropertyItemValue>
               </PropertyItem>
               <PropertyItem direction="column">
-                <PropertyItemLabel>Font size</PropertyItemLabel>
+                <PropertyItemLabel>字体大小</PropertyItemLabel>
                 <PropertyItemValue>
                   <div className="flex items-center gap-2">
                     <Slider
@@ -267,7 +267,7 @@ export function TextProperties({
                 </PropertyItemValue>
               </PropertyItem>
               <PropertyItem direction="column">
-                <PropertyItemLabel>Color</PropertyItemLabel>
+                <PropertyItemLabel>颜色</PropertyItemLabel>
                 <PropertyItemValue>
                   <ColorPicker
                     value={uppercase(
@@ -283,7 +283,7 @@ export function TextProperties({
                 </PropertyItemValue>
               </PropertyItem>
               <PropertyItem direction="column">
-                <PropertyItemLabel>Opacity</PropertyItemLabel>
+                <PropertyItemLabel>不透明度</PropertyItemLabel>
                 <PropertyItemValue>
                   <div className="flex items-center gap-2">
                     <Slider
@@ -315,7 +315,7 @@ export function TextProperties({
                 </PropertyItemValue>
               </PropertyItem>
               <PropertyItem direction="column">
-                <PropertyItemLabel>Background</PropertyItemLabel>
+                <PropertyItemLabel>背景</PropertyItemLabel>
                 <PropertyItemValue>
                   <div className="flex items-center gap-2">
                     <ColorPicker
@@ -357,7 +357,7 @@ export function TextProperties({
                           />
                         </Button>
                       </TooltipTrigger>
-                      <TooltipContent>Transparent background</TooltipContent>
+                      <TooltipContent>透明背景</TooltipContent>
                     </Tooltip>
                   </div>
                 </PropertyItemValue>

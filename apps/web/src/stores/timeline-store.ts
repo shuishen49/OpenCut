@@ -1600,8 +1600,8 @@ export const useTimelineStore = create<TimelineStore>((set, get) => {
         const isMultiple = elementsToProcess.length > 1;
         toast.error(
           isMultiple
-            ? "Playhead must be within all selected elements to split"
-            : "Playhead must be within element to split"
+            ? "播放头必须在所有选中的元素内才能分割"
+            : "播放头必须在元素内才能分割"
         );
         return;
       }
@@ -1785,16 +1785,16 @@ export const useTimelineStore = create<TimelineStore>((set, get) => {
         );
         if (result.success) {
           const { toast } = await import("sonner");
-          toast.success("Clip replaced successfully");
+          toast.success("片段替换成功");
         } else {
           const { toast } = await import("sonner");
-          toast.error(result.error || "Failed to replace clip");
+          toast.error(result.error || "替换片段失败");
         }
       } catch (error) {
         console.error("Unexpected error replacing clip:", error);
         const { toast } = await import("sonner");
         toast.error(
-          `Unexpected error: ${error instanceof Error ? error.message : "Unknown error"}`
+          `意外错误：${error instanceof Error ? error.message : "未知错误"}`
         );
       }
     },

@@ -52,7 +52,7 @@ export function ExportButton() {
         >
           <div className="flex items-center gap-1.5 bg-linear-270 from-[#2567EC] to-[#37B6F7] rounded-[0.8rem] px-4 py-1 relative shadow-[0_1px_3px_0px_rgba(0,0,0,0.65)]">
             <TransitionUpIcon className="z-50" />
-            <span className="text-[0.875rem] z-50">Export</span>
+            <span className="text-[0.875rem] z-50">导出</span>
             <div className="absolute w-full h-full left-0 top-0 bg-linear-to-t from-white/0 to-white/50 z-10 rounded-[0.8rem] flex items-center justify-center">
               <div className="absolute w-[calc(100%-2px)] h-[calc(100%-2px)] top-[0.08rem] bg-linear-270 from-[#2567EC] to-[#37B6F7] z-50 rounded-[0.8rem]"></div>
             </div>
@@ -143,7 +143,7 @@ function ExportPopover({
           <>
             <div className="flex items-center justify-between">
               <h3 className=" font-medium">
-                {isExporting ? "Exporting project" : "Export project"}
+                {isExporting ? "正在导出项目" : "导出项目"}
               </h3>
               <Button variant="text" size="icon" onClick={handleClose}>
                 <X className="!size-5 text-foreground/85" />
@@ -155,7 +155,7 @@ function ExportPopover({
                 <>
                   <div className="flex flex-col gap-3">
                     <PropertyGroup
-                      title="Format"
+                      title="格式"
                       titleClassName="text-sm"
                       defaultExpanded={false}
                     >
@@ -168,20 +168,20 @@ function ExportPopover({
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="mp4" id="mp4" />
                           <Label htmlFor="mp4">
-                            MP4 (H.264) - Better compatibility
+                            MP4 (H.264) - 更好的兼容性
                           </Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="webm" id="webm" />
                           <Label htmlFor="webm">
-                            WebM (VP9) - Smaller file size
+                            WebM (VP9) - 更小的文件大小
                           </Label>
                         </div>
                       </RadioGroup>
                     </PropertyGroup>
 
                     <PropertyGroup
-                      title="Quality"
+                      title="质量"
                       titleClassName="text-sm"
                       defaultExpanded={false}
                     >
@@ -193,27 +193,27 @@ function ExportPopover({
                       >
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="low" id="low" />
-                          <Label htmlFor="low">Low - Smallest file size</Label>
+                          <Label htmlFor="low">低 - 最小文件大小</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="medium" id="medium" />
-                          <Label htmlFor="medium">Medium - Balanced</Label>
+                          <Label htmlFor="medium">中等 - 平衡</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="high" id="high" />
-                          <Label htmlFor="high">High - Recommended</Label>
+                          <Label htmlFor="high">高 - 推荐</Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="very_high" id="very_high" />
                           <Label htmlFor="very_high">
-                            Very High - Largest file size
+                            很高 - 最大文件大小
                           </Label>
                         </div>
                       </RadioGroup>
                     </PropertyGroup>
 
                     <PropertyGroup
-                      title="Audio"
+                      title="音频"
                       titleClassName="text-sm"
                       defaultExpanded={false}
                     >
@@ -226,7 +226,7 @@ function ExportPopover({
                           }
                         />
                         <Label htmlFor="include-audio">
-                          Include audio in export
+                          导出时包含音频
                         </Label>
                       </div>
                     </PropertyGroup>
@@ -234,7 +234,7 @@ function ExportPopover({
 
                   <Button onClick={handleExport} className="w-full gap-2">
                     <Download className="w-4 h-4" />
-                    Export
+                    导出
                   </Button>
                 </>
               )}
@@ -256,7 +256,7 @@ function ExportPopover({
                     className="rounded-md w-full"
                     onClick={() => {}}
                   >
-                    Cancel
+                    取消
                   </Button>
                 </div>
               )}
@@ -286,7 +286,7 @@ function ExportError({
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-1.5">
-        <p className="text-sm font-medium text-red-400">Export failed</p>
+        <p className="text-sm font-medium text-red-400">导出失败</p>
         <p className="text-xs text-muted-foreground">
           {error}
         </p>
@@ -300,7 +300,7 @@ function ExportError({
           onClick={handleCopy}
         >
           {copied ? <Check className="text-green-500" /> : <Copy />}
-          Copy
+          复制
         </Button>
         <Button
           variant="outline"
@@ -309,7 +309,7 @@ function ExportError({
           onClick={onRetry}
         >
           <RotateCcw />
-          Retry
+          重试
         </Button>
       </div>
     </div>

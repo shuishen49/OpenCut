@@ -44,8 +44,8 @@ export function Hero() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="inline-block font-bold tracking-tighter text-4xl md:text-[4rem]"
         >
-          <h1>The Open Source</h1>
-          <Handlebars>Video Editor</Handlebars>
+          <h1>开源</h1>
+          <Handlebars>视频编辑器</Handlebars>
         </motion.div>
 
         <motion.p
@@ -54,8 +54,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          A simple but powerful video editor that gets the job done. Works on
-          any platform.
+          一个简单而强大的视频编辑器，完成任务。可在任何平台上运行。
         </motion.p>
 
         <motion.div
@@ -70,7 +69,7 @@ export function Hero() {
               size="lg"
               className="px-6 h-11 text-base bg-foreground"
             >
-              Try early beta
+              抢先体验测试版
               <ArrowRight className="relative z-10 ml-0.5 h-4 w-4 inline-block" />
             </Button>
           </Link>
